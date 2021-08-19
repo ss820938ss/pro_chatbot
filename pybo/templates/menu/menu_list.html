@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if menu_list %}
+    <ul>
+    {% for menu in menu_list %}
+        <li>
+            {% if True %}
+            <img src="{{ url_for('static', filename=image_file) }}">
+            {% endif %}
+            <a href="/detail/{{ menu.menu_no }}/">{{ menu.menu_name }} {{ menu.menu_price }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>메뉴가 없습니다.</p>
+{% endif %}
+</body>
+</html>
