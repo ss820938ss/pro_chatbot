@@ -5,19 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block content %}
+
+    <section>
 {% if menu_list %}
     <ul>
     {% for menu in menu_list %}
         <li>
-            {% if True %}
-            <img src="{{ url_for('static', filename=image_file) }}">
-            {% endif %}
-            <a href="/detail/{{ menu.menu_no }}/">{{ menu.menu_name }} {{ menu.menu_price }}</a>
+<!--            {% if True %}-->
+<!--            <img src="{{ url_for('static', filename=image_file) }}">-->
+<!--            {% endif %}-->
+        </li>
+        <li>
+            <a href="{{ url_for('menu.detail', menu_no=menu.menu_no) }}">{{ menu.menu_name }} {{ menu.menu_price }}</a>
         </li>
     {% endfor %}
     </ul>
 {% else %}
     <p>메뉴가 없습니다.</p>
 {% endif %}
+    </section>
+
+{% endblock %}
 </body>
 </html>

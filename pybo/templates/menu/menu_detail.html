@@ -5,10 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block content %}
+
 <h1>{{ menu_detail.menu_name }}</h1>
 
 <div>
     {{ menu_detail.menu_price }}
 </div>
+
+{% endblock %}
 </body>
 </html>
