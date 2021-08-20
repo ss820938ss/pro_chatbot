@@ -12,16 +12,27 @@
 </head>
 <body>
     <header>
-        LOGO  LOGIN  SIGN IN
+        <div id = "logo">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Pybo</a>
+            <ul class="navbar-nav">
+        </div>
+        <div id = "status">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">계정생성</a> <a class="nav-link" href="#">로그인</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <nav>
-        <ul>
-            <li>MAIN</li>
-            <li><a href="http://127.0.0.1:5000/menu/list/">MENU</a></li>
-            <li>STORE</li>
-            <li><a href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
-        </ul>
+        <div id = "menu">
+            <ul>
+                <li>MAIN</li>
+                <li><a href="http://127.0.0.1:5000/menu/list/">MENU</a></li>
+                <li>STORE</li>
+                <li><a href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
+            </ul>
+        </div>
     </nav>
 
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->

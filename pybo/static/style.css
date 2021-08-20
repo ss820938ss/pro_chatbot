@@ -1,0 +1,32 @@
+#logo {
+    margin: auto;
+	width: 1273px;
+	position: relative;
+	line-height: 10px;
+	list-style: none;
+}
+
+#status li a {
+    float: right;
+    width: 15%;
+    height: 100%;
+    background: #fff;
+    list-style: none;
+}
+
+#menu ul li {
+    float: left;
+    width: 25%;
+    height: 100%;
+    line_height: 30px;
+    text-align: center;
+    background: #fff;
+    list-style: none;
+    padding: 30px;
+}
+
+section ul li {
+    text-align: center;
+    background: #fff;
+    list-style: none;
+}
