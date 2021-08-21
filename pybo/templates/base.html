@@ -11,29 +11,31 @@
     <title>Hello, pybo!</title>
 </head>
 <body>
-    <header>
-        <div id = "logo">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Pybo</a>
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-inverse navbar-fixed-top ml-5">
+        <div id="menu1">
+            <div class="row">
+                <nav class="navbar navbar-light bg-#fff">
+                    <div id="space1"></div>
+                    <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
+                    <div id="space2"></div>
+                    <a class="nav-link text-dark" href="#">계정생성</a>
+                    <a class="nav-link text-dark" href="#">로그인</a>
+                </nav>
+            </div>
         </div>
-        <div id = "status">
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">계정생성</a> <a class="nav-link" href="#">로그인</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+    </nav>
 
-    <nav>
-        <div id = "menu">
+    <nav class="navbar navbar-inverse navbar-fixed-top ml-5">
+        <div id="menu2">
             <ul>
-                <li>MAIN</li>
-                <li><a href="http://127.0.0.1:5000/menu/list/">MENU</a></li>
-                <li>STORE</li>
-                <li><a href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
+                <li><a class="nav-link text-dark" href="/">MAIN</a></li>
+                <li><a class="nav-link text-dark" href="http://127.0.0.1:5000/menu/list/">MENU</a></li>
+                <li><a class="nav-link text-dark" href="#">STORE</a></li>
+                <li><a class="nav-link text-dark" href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
             </ul>
         </div>
     </nav>
+
 
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
