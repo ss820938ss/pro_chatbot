@@ -8,31 +8,51 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     <!-- pybo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Hello, pybo!</title>
+
+    <title>COFFEE BOT</title>
+
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top ml-5">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div id="menu1">
             <div class="row">
                 <nav class="navbar navbar-light bg-#fff">
                     <div id="space1"></div>
                     <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
                     <div id="space2"></div>
-                    <a class="nav-link text-dark" href="#">계정생성</a>
-                    <a class="nav-link text-dark" href="#">로그인</a>
+                    <a class="nav-link text-dark" href="#">SIGN IN</a>
+                    <a class="nav-link text-dark" href="#">LOGIN</a>
                 </nav>
             </div>
         </div>
     </nav>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top ml-5">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div id="menu2">
-            <ul>
-                <li><a class="nav-link text-dark" href="/">MAIN</a></li>
-                <li><a class="nav-link text-dark" href="http://127.0.0.1:5000/menu/list/">MENU</a></li>
-                <li><a class="nav-link text-dark" href="#">STORE</a></li>
-                <li><a class="nav-link text-dark" href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
-            </ul>
+            <div class="row">
+                <nav class="navbar2">
+                    <ul>
+                        <li><a class="nav-link text-light" href="/">MAIN</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="/menu/list/"
+                               id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MENU
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-light" href="#">COFFEE</a>
+                                <a class="dropdown-item text-light" href="#">JUICE</a>
+                                <a class="dropdown-item text-light" href="#">TEA</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-light" href="#">CAKE</a>
+                                <a class="dropdown-item text-light" href="#">COOKIE</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link text-light" href="#">ORDER</a></li>
+                        <li><a class="nav-link text-light" href="#">STORE</a></li>
+                        <li><a class="nav-link text-light" href="http://127.0.0.1:5000/question/list/">Q&A</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </nav>
 
@@ -44,9 +64,10 @@
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 
     <footer>
-        LOGO
-        대구광역시 서구 서대구로 7길2 (내당동 245-4번지 2층)
-        ⓒ 2021 COFFEE BOT Coffee Company. All Rights Reserved.
+        <ul>
+            <li class="nav-link text-dark mr-5">COFFEE BOT          |          대구광역시 서구 서대구로 7길2 (내당동 245-4번지 2층)</li>
+            <li class="nav-link text-dark mr-5">ⓒ 2021 COFFEE BOT Coffee Company. All Rights Reserved.</li>
+        </ul>
     </footer>
 
 </body>
