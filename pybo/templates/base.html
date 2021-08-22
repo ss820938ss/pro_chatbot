@@ -20,8 +20,20 @@
                     <div id="space1"></div>
                     <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
                     <div id="space2"></div>
+
+                    {% if g.member %}
+                    뜨긴뜸?
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">{{ g.member.name }} (로그아웃)</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    안뜨네
                     <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">SIGN IN</a>
-                    <a class="nav-link text-dark" href="#">LOGIN</a>
+                    <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>
+                    {% endif %}
+
                 </nav>
             </div>
         </div>
@@ -69,6 +81,11 @@
             <li class="nav-link text-dark mr-5">ⓒ 2021 COFFEE BOT Coffee Company. All Rights Reserved.</li>
         </ul>
     </footer>
+
+<!-- jQuery JS -->
+<script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+<!-- Bootstrap JS -->
+<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 
 </body>
 </html>

@@ -9,14 +9,16 @@ class Menu(db.Model):
 
 
 class Admin(db.Model):
-    no = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    email = db.Column(db.String(200), nullable=False)
-    password = db.Column(db.String(200), nullable=False)
+    ad_no = db.Column(db.Integer, primary_key=True)
+    ad_id = db.Column(db.String(200), nullable=False)
+    ad_name = db.Column(db.String(200), nullable=False)
+    ad_email = db.Column(db.String(200), nullable=False)
+    ad_password = db.Column(db.String(200), nullable=False)
 
 
 class Member(db.Model):
     no = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(200), nullable=False)
     name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
