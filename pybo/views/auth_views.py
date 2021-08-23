@@ -33,14 +33,14 @@ def login():
     form = MemberLoginForm()
     if request.method == 'POST' and form.validate_on_submit():
         error = None
-        member = Member.query.filter_by(id=form.id.data).first()
-        if not member:
+        user = Member.query.filter_by(id=form.id.data).first()
+        if not user:
             error = "존재하지 않는 사용자입니다."
-        elif not check_password_hash(member.password, form.password.data):
+        elif not check_password_hash(user.password, form.password.data):
             error = "비밀번호가 올바르지 않습니다."
         if error is None:
             session.clear()
-            session['member_id'] = member.id
+            session['user_id'] = user.id
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('auth/login.html', form=form)
@@ -48,11 +48,11 @@ def login():
 
 @bp.before_app_request
 def load_logged_in_user():
-    member_id = session.get('member_id')
-    if member_id is None:
-        g.member = None
+    user_id = session.get('user_id')
+    if user_id is None:
+        g.user = None
     else:
-        g.member = Member.query.get(member_id)
+        g.user = Member.query.get(user_id)
 
 
 @bp.route('/logout/')
