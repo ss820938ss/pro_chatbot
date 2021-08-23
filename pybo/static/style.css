@@ -41,14 +41,15 @@
     background-color: #8C615A;
 }
 
+footer {
+    float: left;
+    margin-top: 20%;
+    margin-left: 31%;
+}
+
 footer ul li {
     list-style: none;
     text-align: center;
     white-space: pre;
     text-style: bolder;
-}
-
-/* 테이블 */
-.thead {
-    background-color: #8C615A;
 }

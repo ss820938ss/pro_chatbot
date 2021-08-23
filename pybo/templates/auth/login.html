@@ -7,23 +7,31 @@
 <body>
 {% extends "base.html" %}
 {% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
 <div class="container my-3">
     <form method="post" class="post-form">
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
-        <div class="form-group">
-            <label for="id">사용자 이름</label>
-            <input type="text" class="form-control" name="id" id="id"
-                   value="{{ form.id.data or '' }}">
+        <div class="form_main">
+            <div class="form-group">
+                <input type="text" class="form-control" name="id" id="id"
+                       value="{{ form.id.data or '' }}" placeholder="아이디">
+                <input type="password" class="form-control" name="password" id="password"
+                       value="{{ form.password.data or '' }}" placeholder="비밀번호">
+            </div>
+            <button type="submit" class="btn btn-default" id="btn1">로그인</button>
+            <a class="nav-link text-dark" id="btn2" href="#">아이디 / 비밀번호 찾기</a>
         </div>
-        <div class="form-group">
-            <label for="password">비밀번호</label>
-            <input type="password" class="form-control" name="password" id="password"
-                   value="{{ form.password.data or '' }}">
-        </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
     </form>
 </div>
+
 {% endblock %}
+
+<script>
+
+</script>
+
 </body>
 </html>
