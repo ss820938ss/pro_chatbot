@@ -14,7 +14,8 @@
                     <div id="space2"></div>
 
                     {% if session.get('user_id') %}
-                            <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">{{ session.get('user_id') }} (로그아웃)</a>
+                            {{ session.get('user_id') }} 회원님 반갑습니다.
+                            <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">로그아웃</a>
                     {% else %}
                             <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">SIGN IN</a>
                             <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>

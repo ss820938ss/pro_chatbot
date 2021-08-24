@@ -16,10 +16,10 @@
 
     <table class="table">
         <thead>
-        <tr class="text-center thead-dark">
+        <tr class="text-center" id="table_top">
             <th class="text-light">번호</th>
-            <th style="width:50%">제목</th>
-            <th>글쓴이</th>
+            <th class="text-light" style="width:50%">제목</th>
+            <th class="text-light">글쓴이</th>
             <th class="text-light">작성일시</th>
         </tr>
         </thead>
@@ -35,7 +35,7 @@
                 <span class="text-danger small ml-2">{{ question.answer_set|length }}</span>
                 {% endif %}
             </td>
-            <td>{{ question.user.username }}</td>  <!-- 글쓴이 추가 -->
+            <td>{{ question.user_id }}</td>  <!-- 글쓴이 추가 -->
             <td>{{ question.create_date|datetime }}</td>
         </tr>
         {% endfor %}

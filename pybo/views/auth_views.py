@@ -7,6 +7,7 @@ from pybo.forms import MemberCreateForm, MemberLoginForm
 from pybo.models import Member
 import functools
 
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
@@ -17,10 +18,10 @@ def signup():
         user = Member.query.filter_by(id=form.id.data).first()
         if not user:
             user = Member(
-                        id=form.id.data,
-                        name=form.name.data,
-                        password=generate_password_hash(form.password1.data),
-                        email=form.email.data)
+                id=form.id.data,
+                name=form.name.data,
+                password=generate_password_hash(form.password1.data),
+                email=form.email.data)
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('main.index'))
@@ -65,7 +66,9 @@ def logout():
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if g.user is None:
+        user = session.get('user_id')
+        if user is None:
             return redirect(url_for('auth.login'))
         return view(**kwargs)
+
     return wrapped_view
