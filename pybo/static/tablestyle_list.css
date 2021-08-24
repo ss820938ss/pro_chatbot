@@ -1,0 +1,41 @@
+/* 테이블 리스트 */
+
+#table_top {
+    background-color: #8C615A;
+}
+
+.form-control {
+    padding-top: 30px;
+}
+
+#btn_search {
+    background-color: #8C615A;
+}
+
+#btn {
+	height: 38px;
+	width: 150px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+	float: left;
+}
+
+a:link {
+  color : #282828;
+}
+a:visited {
+  color : #282828;
+}
+a:hover {
+  color : #282828;
+}
+a:active {
+  color : #282828;
+}
+
+.box {
+    margin-top: 5%;
+}

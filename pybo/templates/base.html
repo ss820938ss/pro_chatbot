@@ -21,12 +21,15 @@
                 <nav class="navbar2">
                     <ul>
                         <li><a class="nav-link text-light" href="/">MAIN</a></li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="/menu/list/"
+                            <a class="nav-link dropdown-toggle text-light" href=""
                                id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 MENU
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-light" href="/menu/list/">ALL MENU</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-light" href="#">COFFEE</a>
                                 <a class="dropdown-item text-light" href="#">JUICE</a>
                                 <a class="dropdown-item text-light" href="#">TEA</a>
@@ -62,6 +65,11 @@
 <script src="{{ url_for('static', filename='jquery-3.6.0.min.js') }}"></script>
 <!-- Bootstrap JS -->
 <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
 
 </body>
 </html>

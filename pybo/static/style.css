@@ -31,7 +31,11 @@
 }
 
 #space2 {
-    margin-right: 1050px;
+    margin-right: 1120px;
+}
+
+#space3 {
+    margin-right: 950px;
 }
 
 .dropdown:hover .dropdown-menu {

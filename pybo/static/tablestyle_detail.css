@@ -1,0 +1,12 @@
+/* 질문 답변 등록페이지 */
+
+#btn {
+	height: 38px;
+	width: 150px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+	float: left;
+}

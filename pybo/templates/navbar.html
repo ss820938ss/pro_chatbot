@@ -11,14 +11,17 @@
                 <nav class="navbar navbar-light bg-#fff">
                     <div id="space1"></div>
                     <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
-                    <div id="space2"></div>
+
 
                     {% if session.get('user_id') %}
-                            {{ session.get('user_id') }} 회원님 반갑습니다.
-                            <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">로그아웃</a>
+                    <div id="space3"></div>
+                        {{ session.get('user_id') }} 회원님 반갑습니다.
+                        <a class="nav-link text-dark" href="#">MYPAGE</a>
+                        <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">LOGOUT</a>
                     {% else %}
-                            <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">SIGN IN</a>
-                            <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>
+                    <div id="space2"></div>
+                        <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">SIGN IN</a>
+                        <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>
                     {% endif %}
 
                 </nav>
