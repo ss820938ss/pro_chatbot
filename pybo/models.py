@@ -43,3 +43,10 @@ class Answer(db.Model):
 
     user_id = db.Column(db.String(200), db.ForeignKey('member.id', ondelete='CASCADE'), nullable=True)
     user = db.relationship('Member', backref=db.backref('answer_set'))
+
+
+class Order(db.Model):
+    order_id = db.Column(db.Integer, primary_key=True)
+    product = db.Column(db.Integer, db.ForeignKey('menu.menu_no', ondelete='CASCADE'), nullable=True)
+    quantity = db.Column(db.Integer, nullable=True)
+    order_price = db.Column(db.Integer, db.ForeignKey('menu.menu_price', ondelete='CASCADE'), nullable=True)

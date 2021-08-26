@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flaskext.markdown import Markdown
 from sqlalchemy import MetaData
 import config
+from flask_mail import Mail
 
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
@@ -43,6 +44,7 @@ def create_app():
     # app.register_blueprint(mypage_views.bp)
     app.register_blueprint(store_views.bp)
     app.register_blueprint(order_views.bp)
+    # app.register_blueprint(mail_views.bp)
 
     # 필터
     from .filter import format_datetime
