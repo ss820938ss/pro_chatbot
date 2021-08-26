@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_detail.css') }}">
+
+<div class="coffee01">
+    <div class="detail1">
+        <h1>CAKE</h1>
+        <img src="{{ url_for('static', filename='image/crepe.png') }}">
+    </div>
+    <div class="detail2">
+        <h4>크레이프케이크</h4>
+        <div class="line"></div>
+        <br>
+        한 장 한 장 정성스럽게 구운 크레이프 사이에
+        초코 크림과 진한 가나슈를 넣어 만든 케이크입니다.
+        초코 크런치 볼 토핑으로 바삭한 식감을 더했습니다.
+        <br><br><br><br><br>
+        <a href="#" class="btn btn-primary" id="btn">주문하기</a>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

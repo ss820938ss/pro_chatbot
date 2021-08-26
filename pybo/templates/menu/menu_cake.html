@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_list.css') }}">
+
+<section>
+    <div class="title">CAKE</div>
+    <table>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='image/cheesecake.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/cake01/">뉴욕치즈케이크 4,500원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/crepe.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/cake02/">크레이프케이크 4,500원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/gateau.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/cake03/">가토쇼콜라 5,000원</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
+
+{% endblock %}
+</body>
+</html>

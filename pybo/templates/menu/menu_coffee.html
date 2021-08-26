@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_list.css') }}">
+
+<section>
+    <div class="title">COFFEE</div>
+    <table>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='image/americano.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/coffee01/">아메리카노 2,000원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/latte.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/coffee02/">카페라떼 3,000원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/Vanilla.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/coffee03/">바닐라라떼 4,000원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/dolce.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/coffee04/">돌체라떼 3,500원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/espresso.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/coffee05/">에스프레소 1,500원</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
+
+{% endblock %}
+</body>
+</html>

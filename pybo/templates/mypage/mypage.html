@@ -8,31 +8,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='sign.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
 
 <div class="container my-3">
     <form method="post" class="post-form">
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
-        <div class="sign-main">
-            <label><h1>회원가입</h1></label>
+        <div class="mypage-main">
+            <label><h1>회원정보 수정</h1></label>
             <div class="form-group">
                 <input type="text" class="form-control" name="id" id="id"
-                       value="{{ form.id.data or '' }}" placeholder="아이디">
+                       value="{{ form.id.data or '' }}">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="name" id="name"
-                       value="{{ form.name.data or '' }}" placeholder="이름">
+                       value="{{ form.name.data or '' }}">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password1" id="password1"
-                       value="{{ form.password1.data or '' }}" placeholder="비밀번호">
+                       value="{{ form.password1.data or '' }}">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password2" id="password2"
+                       value="{{ form.password2.data or '' }}">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="email" id="email"
-                       value="{{ form.email.data or '' }}" placeholder="이메일">
+                       value="{{ form.email.data or '' }}">
             </div>
-            <button type="submit" class="btn btn-primary" id="btn">가입하기</button>
+            <button type="submit" class="btn btn-primary" id="btn">정보 수정하기</button>
         </div>
     </form>
 </div>

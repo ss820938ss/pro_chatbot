@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_detail.css') }}">
+
+<div class="coffee01">
+    <div class="detail1">
+        <h1>COFFEE</h1>
+        <img src="{{ url_for('static', filename='image/dolce.png') }}">
+    </div>
+    <div class="detail2">
+        <h4>돌체라떼</h4>
+        <div class="line"></div>
+        <br>
+        다른 커피 음료보다 더욱 깊은 커피의 맛과 향에 깔끔한 무지방 우유와 부드러운 돌체 시럽이 들어간 음료로 달콤하고 진한 커피 라떼
+        <br><br><br><br><br>
+        <a href="#" class="btn btn-primary" id="btn">주문하기</a>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

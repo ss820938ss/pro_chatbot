@@ -33,12 +33,16 @@ def create_app():
     from . import models
 
     # 블루프린트
-    from .views import main_views, menu_views, question_views, answer_views, auth_views
+    from .views import main_views, menu_views, question_views, answer_views, auth_views, mypage_views, store_views, menu_detail_views, order_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(menu_views.bp)
+    app.register_blueprint(menu_detail_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
     app.register_blueprint(auth_views.bp)
+    # app.register_blueprint(mypage_views.bp)
+    app.register_blueprint(store_views.bp)
+    app.register_blueprint(order_views.bp)
 
     # 필터
     from .filter import format_datetime

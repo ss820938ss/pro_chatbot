@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-{% extends 'base.html' %}
+
+{% extends "base.html" %}
 {% block content %}
 
-<h1>{{ menu_detail.menu_name }}</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='idpw.css') }}">
 
-<div>
-    {{ menu_detail.menu_price }}
-</div>
+  아이디 패스워드 찾기
 
 {% endblock %}
+
 </body>
 </html>

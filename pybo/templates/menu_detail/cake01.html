@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_detail.css') }}">
+
+<div class="coffee01">
+    <div class="detail1">
+        <h1>CAKE</h1>
+        <img src="{{ url_for('static', filename='image/cheesecake.png') }}">
+    </div>
+    <div class="detail2">
+        <h4>뉴욕치즈케이크</h4>
+        <div class="line"></div>
+        <br>
+        크림치즈가 듬뿍 들어간 케이크를 높은 온도로 짧은 시간 구워 낸 진한 맛의 치즈 케이크입니다.
+        <br><br><br><br><br>
+        <a href="#" class="btn btn-primary" id="btn">주문하기</a>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

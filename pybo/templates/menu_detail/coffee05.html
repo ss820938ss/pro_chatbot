@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_detail.css') }}">
+
+<div class="coffee01">
+    <div class="detail1">
+        <h1>COFFEE</h1>
+        <img src="{{ url_for('static', filename='image/espresso.png') }}">
+    </div>
+    <div class="detail2">
+        <h4>에스프레소</h4>
+        <div class="line"></div>
+        <br>
+        신선한 에스프레소 샷
+        <br><br><br><br><br>
+        <a href="#" class="btn btn-primary" id="btn">주문하기</a>
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

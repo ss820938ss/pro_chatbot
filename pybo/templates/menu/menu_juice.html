@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='menu_list.css') }}">
+
+<section>
+    <div class="title">JUICE</div>
+    <table>
+        <tr>
+            <td>
+                <img src="{{ url_for('static', filename='image/strawberry.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/juice01/">딸기라떼 5,000원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/banana.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/juice02/">바나나스무디 4,500원</a>
+                </div>
+            </td>
+            <td>
+                <img src="{{ url_for('static', filename='image/grapefruit.png') }}">
+                <br>
+                <div class="menu_name">
+                    <a href="/menu_detail/juice03/">자몽에이드 4,000원</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
+
+{% endblock %}
+</body>
+</html>
