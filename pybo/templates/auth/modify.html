@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='mypage.css') }}">
+
+<div class="container my-3">
+    <div class="mypage-main">
+        <label><h1>수정완료</h1></label>
+        <div class="form-group">
+            <input type="text" class="form-control" name="email" id="email"
+                   value="{{ users.email }}" disabled>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" id="name"
+                   value="{{ users.name }}" placeholder="이름">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="address" id="address"
+                   value="{{ users.address }}" placeholder="주소">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="phone" id="phone"
+                   value="{{ users.phone }}" placeholder="휴대폰">
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn1">수정하기</button>
+        <br>
+        <a href="#" class="delete btn btn-sm btn-outline-secondary "
+           data-uri="{{ url_for('auth.delete', email=users.email) }}" id="btn2">회원탈퇴</a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 탈퇴하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
+{% endblock %}
+</body>
+</html>

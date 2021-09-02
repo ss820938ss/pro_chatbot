@@ -16,13 +16,13 @@
         {% include "form_errors.html" %}
         <div class="form_main">
             <div class="form-group">
-                <input type="text" class="form-control" name="id" id="id"
-                       value="{{ form.id.data or '' }}" placeholder="아이디">
+                <input type="text" class="form-control" name="email" id="email"
+                       value="{{ form.email.data or '' }}" placeholder="이메일">
                 <input type="password" class="form-control" name="password" id="password"
                        value="{{ form.password.data or '' }}" placeholder="비밀번호">
             </div>
             <button type="submit" class="btn btn-default" id="btn1">로그인</button>
-            <a class="nav-link text-dark" id="btn2" href="{{ url_for('reset_password_request') }}">아이디 / 비밀번호 찾기</a>
+            <a class="nav-link text-dark" id="btn2" href="#">아이디 / 비밀번호 찾기</a>
         </div>
     </form>
 </div>

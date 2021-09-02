@@ -1,6 +1,7 @@
 /* 로그인 */
 
 body {
+    padding-top: 10%;
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -18,14 +19,14 @@ body {
 
 .form_main {
     float: left;
-    margin-left: 38%;
+    margin-left: 35%;
     margin-top: 80px;
     padding-top:50px;
     width: 400px;
     height: 300px;
 }
 
-#id {
+#email {
 	height: 50px;
 	width: 300px;
 	text-align: center;

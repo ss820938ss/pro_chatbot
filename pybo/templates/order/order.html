@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
 </head>
 <body>
-
     {% extends 'base.html' %}
     {% block content %}
 
-      장바구니
+    <link rel="stylesheet" href="{{ url_for('static', filename='order.css') }}">
+
+<section>
+    <label><h1>ORDER</h1></label>
+    <div class="line"></div>
+
+        <div class="detail1">
+            <h1>{{ categories.name }}</h1>
+            <img src="/static/image/{{products.image}}">
+            <h4>{{ form.products.name }}</h4>
+            <h4>{{ products.price }}</h4>
+        </div>
+
+    <div class="line"></div>
+
+</section>
 
     {% endblock %}
 

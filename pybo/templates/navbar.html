@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <!-- pybo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>COFFEE BOT</title>
+
 </head>
-<body>
-   <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div id="menu1">
-            <div class="row">
-                <nav class="navbar navbar-light bg-#fff">
-                    <div id="space1"></div>
-                    <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div id="menu1">
+        <div class="row">
+            <nav class="navbar navbar-light bg-#fff">
+                <div id="space1"></div>
+                <a class="navbar-brand mr-5" href="{{ url_for('main.index') }}">COFFEE BOT</a>
 
 
-                    {% if session.get('user_id') %}
-                    <div id="space3"></div>
-                        {{ session.get('user_id') }} 회원님 반갑습니다.
-                        <a class="nav-link text-dark" href="{{ url_for('main.index') }}">MYPAGE</a>
-                        <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">LOGOUT</a>
-                    {% else %}
-                    <div id="space2"></div>
-                        <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">SIGN IN</a>
-                        <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>
-                    {% endif %}
+                {% if session.get('user_id') %}
+                <div id="space3"></div>
+                {{ session.get('user_id') }}님, 안녕하세요.
+                <a class="nav-link text-dark" href="{{ url_for('auth.mypage') }}">MYPAGE</a>
+                <a class="nav-link text-dark" href="{{ url_for('auth.logout') }}">LOGOUT</a>
+                {% else %}
+                <div id="space2"></div>
+                <a class="nav-link text-dark" href="{{ url_for('auth.signup') }}">JOIN</a>
+                <a class="nav-link text-dark" href="{{ url_for('auth.login') }}">LOGIN</a>
+                {% endif %}
 
-                </nav>
-            </div>
+            </nav>
         </div>
-    </nav>
-</body>
+    </div>
+</nav>
 </html>

@@ -1,6 +1,7 @@
 /* 회원가입 */
 
 body {
+    padding-top: 7%;
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -58,6 +59,20 @@ h1 {
 }
 
 #email {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#address {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#phone {
 	height: 35px;
 	width: 300px;
 	text-align: center;

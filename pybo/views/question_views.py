@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 import sys
 
-from pybo.models import Question, Answer, Member
+from pybo.models import Question, Answer, Users
 from ..forms import QuestionForm, AnswerForm
 from datetime import datetime
 
@@ -24,14 +24,14 @@ def _list():
     question_list = Question.query.order_by(Question.create_date.desc())
     if kw:
         search = '%%{}%%'.format(kw)
-        sub_query = db.session.query(Answer.question_id, Answer.content, Member.id) \
-            .join(Member, Answer.user_id == Member.id).subquery()
+        sub_query = db.session.query(Answer.question_id, Answer.content, Users.userId) \
+            .join(Users, Answer.user_id == Users.userId).subquery()
         question_list = question_list \
-            .join(Member) \
+            .join(Users) \
             .outerjoin(sub_query, sub_query.c.question_id == Question.id) \
             .filter(Question.subject.ilike(search) |  # 질문제목
                     Question.content.ilike(search) |  # 질문내용
-                    Member.id.ilike(search) |  # 질문작성자
+                    Users.userId.ilike(search) |  # 질문작성자
                     sub_query.c.content.ilike(search) |  # 답변내용
                     sub_query.c.id.ilike(search)  # 답변작성자
                     ) \

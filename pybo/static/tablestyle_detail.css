@@ -1,5 +1,18 @@
 /* 질문 답변 등록페이지 */
 
+.form_padding {
+    padding-top: 9%;
+}
+
+section {
+    padding-top: 8%;
+    position: inherit;
+}
+
+.card {
+    position: inherit;
+}
+
 #btn {
 	height: 38px;
 	width: 150px;
@@ -8,5 +21,5 @@
 	background-color: #8C615A;
 	color: #fff;
 	font-weight: bolder;
-	float: left;
+	position: inherit;
 }

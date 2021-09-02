@@ -1,8 +1,11 @@
+body {
+    padding-top: 5%;
+}
+
 .coffee01 {
     width: 1000px;
     margin: 0 auto;
     overflow: hidden;
-
 }
 
 .detail1 {

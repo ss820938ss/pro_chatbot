@@ -9,7 +9,7 @@
 {% block content %}
 
 <link rel="stylesheet" href="{{ url_for('static', filename='tablestyle_detail.css') }}">
-
+<section>
 <div class="container my-3">
     <form method="post" class="post-form">
         {{ form.csrf_token }}
@@ -22,6 +22,7 @@
         <button type="submit" class="btn btn-primary" id="btn">저장하기</button>
     </form>
 </div>
+</section>
 {% endblock %}
 </body>
 </html>

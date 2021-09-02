@@ -11,6 +11,7 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='tablestyle_detail.css') }}">
 
+<section>
 <div class="container my-3">
     <h2 class="border-bottom py-2">{{ question.subject }}</h2>
     <div class="card my-3">
@@ -80,7 +81,7 @@
         <input type="submit" value="답변등록" class="btn btn-primary" id="btn">
     </form>
 </div>
-
+</section>
     {% endblock %}
 
 {% block script %}

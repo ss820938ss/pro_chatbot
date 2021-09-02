@@ -11,20 +11,21 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='menu_list.css') }}">
 
 <section>
+    <div class="title">COOKIE</div>
     <table>
         <tr>
             <td>
                 <img src="{{ url_for('static', filename='image/chocolatechip.png') }}">
                 <br>
                 <div class="menu_name">
-                    <a href="/menu_detail/cookie01/">초코칩쿠키 1,500원</a>
+                    <a href="/menu/menu_detail?productId=14&name=COOKIE">초코칩쿠키 1,500원</a>
                 </div>
             </td>
             <td>
                 <img src="{{ url_for('static', filename='image/oatmeal.png') }}">
                 <br>
                 <div class="menu_name">
-                    <a href="/menu_detail/cookie02/">오트밀쿠키 1,500원</a>
+                    <a href="/menu/menu_detail?productId=15&name=COOKIE">오트밀쿠키 1,500원</a>
                 </div>
             </td>
         </tr>

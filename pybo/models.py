@@ -1,37 +1,56 @@
 from pybo import db
 
 
-class Menu(db.Model):
-    menu_no = db.Column(db.Integer, primary_key=True)
-    menu_name = db.Column(db.String(200), nullable=False)
-    menu_price = db.Column(db.Integer, nullable=False)
-    menu_kate = db.Column(db.String(200), nullable=False)
-
-
-class Admin(db.Model):
-    ad_no = db.Column(db.Integer, primary_key=True)
-    ad_id = db.Column(db.String(200), nullable=False)
-    ad_name = db.Column(db.String(200), nullable=False)
-    ad_email = db.Column(db.String(200), nullable=False)
-    ad_password = db.Column(db.String(200), nullable=False)
-
-
-class Member(db.Model):
-    no = db.Column(db.Integer, primary_key=True)
-    id = db.Column(db.String(200), nullable=False)
+# 상품
+class Categories(db.Model):
+    categoryId = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
-    email = db.Column(db.String(200), unique=True, nullable=False)
-    password = db.Column(db.String(200), nullable=False)
 
 
+class Products(db.Model):
+    productId = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    image = db.Column(db.String(200), nullable=False)
+    stock = db.Column(db.Integer, nullable=False)
+
+    categoryId = db.Column(db.Integer, db.ForeignKey('categories.categoryId', ondelete='CASCADE'), nullable=True)
+
+
+class Cart(db.Model):
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId', ondelete='CASCADE'), nullable=True, primary_key=True)
+    productId = db.Column(db.Integer, db.ForeignKey('products.productId', ondelete='CASCADE'), nullable=True, primary_key=True)
+
+
+# 회원관리
+class Admin(db.Model):
+    adminId = db.Column(db.Integer, primary_key=True)
+    password = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(50), nullable=False)
+    address = db.Column(db.String(200), nullable=False)
+    phone = db.Column(db.String(30), nullable=False)
+
+
+class Users(db.Model):
+    userId = db.Column(db.Integer, primary_key=True)
+    password = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(50), nullable=False)
+    address = db.Column(db.String(200), nullable=False)
+    phone = db.Column(db.String(30), nullable=False)
+
+
+# 게시판
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     subject = db.Column(db.String(200), nullable=False)
     content = db.Column(db.Text(), nullable=False)
     create_date = db.Column(db.DateTime(), nullable=False)
 
-    user_id = db.Column(db.String(200), db.ForeignKey('member.id', ondelete='CASCADE'), nullable=True)
-    user = db.relationship('Member', backref=db.backref('question_set'))
+    user_id = db.Column(db.String(200), db.ForeignKey('users.userId', ondelete='CASCADE'), nullable=True)
+    user = db.relationship('Users', backref=db.backref('question_set'))
 
 
 class Answer(db.Model):
@@ -41,12 +60,8 @@ class Answer(db.Model):
     content = db.Column(db.Text(), nullable=False)
     create_date = db.Column(db.DateTime(), nullable=False)
 
-    user_id = db.Column(db.String(200), db.ForeignKey('member.id', ondelete='CASCADE'), nullable=True)
-    user = db.relationship('Member', backref=db.backref('answer_set'))
+    user_id = db.Column(db.String(200), db.ForeignKey('users.userId', ondelete='CASCADE'), nullable=True)
+    user = db.relationship('Users', backref=db.backref('answer_set'))
 
 
-class Order(db.Model):
-    order_id = db.Column(db.Integer, primary_key=True)
-    product = db.Column(db.Integer, db.ForeignKey('menu.menu_no', ondelete='CASCADE'), nullable=True)
-    quantity = db.Column(db.Integer, nullable=True)
-    order_price = db.Column(db.Integer, db.ForeignKey('menu.menu_price', ondelete='CASCADE'), nullable=True)
+

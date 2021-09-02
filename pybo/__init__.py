@@ -7,6 +7,7 @@ from sqlalchemy import MetaData
 import config
 from flask_mail import Mail
 
+
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
     "uq": "uq_%(table_name)s_%(column_0_name)s",
@@ -22,6 +23,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
 
+
     # ORM
     db.init_app(app)
     migrate.init_app(app, db)
@@ -34,17 +36,16 @@ def create_app():
     from . import models
 
     # 블루프린트
-    from .views import main_views, menu_views, question_views, answer_views, auth_views, mypage_views, store_views, menu_detail_views, order_views
+    from .views import main_views, auth_views, question_views, answer_views, menu_views, order_views
+        # store_views
+
     app.register_blueprint(main_views.bp)
-    app.register_blueprint(menu_views.bp)
-    app.register_blueprint(menu_detail_views.bp)
+    app.register_blueprint(auth_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
-    app.register_blueprint(auth_views.bp)
-    # app.register_blueprint(mypage_views.bp)
-    app.register_blueprint(store_views.bp)
+    app.register_blueprint(menu_views.bp)
     app.register_blueprint(order_views.bp)
-    # app.register_blueprint(mail_views.bp)
+    # app.register_blueprint(store_views.bp)
 
     # 필터
     from .filter import format_datetime

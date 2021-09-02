@@ -12,16 +12,16 @@
 
 <div class="coffee01">
     <div class="detail1">
-        <h1>TEA</h1>
-        <img src="{{ url_for('static', filename='image/lavender.png') }}">
+        <h1>{{ categories.name }}</h1>
+        <img src="/static/image/{{products.image}}">
     </div>
     <div class="detail2">
-        <h4>라벤더티</h4>
+        <h4>{{ products.name }}</h4>
         <div class="line"></div>
         <br>
-        향긋한 라벤더의 풍미가 부드러운 차
+        {{ products.description }}
         <br><br><br><br><br>
-        <a href="#" class="btn btn-primary" id="btn">주문하기</a>
+        <a href="/order/order/?productId={{request.args.get('productId')}}" class="delete btn btn-sm btn-outline-secondary" id="btn">주문하기</a>
     </div>
 </div>
 

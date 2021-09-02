@@ -1,5 +1,9 @@
 /* 테이블 리스트 */
 
+.container {
+    padding-top: 7%;
+}
+
 #table_top {
     background-color: #8C615A;
 }

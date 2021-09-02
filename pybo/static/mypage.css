@@ -1,0 +1,109 @@
+/* 회원가입 */
+
+body {
+    padding-top: 7%;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+            to right,
+            rgba(20, 20, 20, 0) 10%,
+            rgba(20, 20, 20, 0.25) 25%,
+            rgba(20, 20, 20, 0.5) 50%,
+            rgba(20, 20, 20, 0.75) 75%,
+            rgba(20, 20, 20, 1) 100%
+          ),
+          url(https://images.unsplash.com/photo-1493925410384-84f842e616fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80);
+    background-size: cover;
+}
+
+h1 {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	color: #fff;
+	margin-bottom: 30px;
+}
+
+h6 {
+    height: 35px;
+	width: 300px;
+	color: #fff;
+	text-align: center;
+}
+
+.mypage-main {
+    padding-left: 36%;
+    padding-top: 10%;
+}
+
+#id {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#name {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#password1 {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#password2 {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#email {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#address {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#phone {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#btn1 {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+	margin-top: 10px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+}
+
+#btn2 {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+	margin-top: 10px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+}
