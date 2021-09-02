@@ -15,7 +15,8 @@
 <section>
     <label><h1>ORDER</h1></label>
     <br>
-
+    <input type="hidden" id="id" value="{{ form.productId.data or '' }}">
+    {{ products.name }}
 </section>
 
     {% endblock %}
