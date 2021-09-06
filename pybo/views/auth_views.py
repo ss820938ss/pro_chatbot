@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import redirect
 
 from pybo import db
-from pybo.forms import UsersCreateForm, UsersLoginForm, UsersModifyForm
+from pybo.forms import UsersCreateForm, UsersLoginForm, UsersModifyForm, UsersPassModifyForm
 from pybo.models import Users
 import functools
 import sys
@@ -137,3 +137,26 @@ def delete():
         flash('탈퇴 중 오류가 발생했습니다.')
 
     return render_template('auth/delete.html', users=user)
+
+
+# 비밀번호 변경
+@bp.route("/changePassword/", methods=["GET", "POST"])
+@login_required
+def changePassword():
+    form = UsersPassModifyForm(request.form)
+    print("========", request.method, file=sys.stderr)
+
+    if request.method == "GET":
+        global user
+        user = db.session.query(Users).filter_by(email=session.get('user_id')).first()
+        print("========3333", user.email, file=sys.stderr)
+        user.email = session.get('user_id')
+        # user.password = check_password_hash(user.password, form.password1.data)
+        user.password = form.password1.data
+        user.password = generate_password_hash(form.password1.data)
+        print("========3333", user.password, file=sys.stderr)
+        db.session.commit()
+    else:
+        flash('비밀번호 수정 중 오류가 발생했습니다')
+
+    return render_template('auth/changePassword.html', form=form, users=user)

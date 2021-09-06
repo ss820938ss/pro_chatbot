@@ -29,10 +29,12 @@
             <input type="text" class="form-control" name="phone" id="phone"
                    value="{{ users.phone }}" placeholder="휴대폰">
         </div>
-        <button type="submit" class="btn btn-primary" id="btn1">수정하기</button>
+        <button type="submit" class="btn btn-primary" id="btn1" disabled>수정하기</button>
         <br>
         <a href="#" class="delete btn btn-sm btn-outline-secondary "
            data-uri="{{ url_for('auth.delete', email=users.email) }}" id="btn2">회원탈퇴</a>
+        <br>
+        <a href="/auth/changePassword/" class="pass btn btn-sm btn-outline-secondary" id="btn3">비밀번호 변경</a>
     </div>
 </div>
 

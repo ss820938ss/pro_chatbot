@@ -9,9 +9,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <section>
-        본문
-    </section>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+<section>
+    <div id="slide">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="img">
+        <div class="scale"><img src="{{ url_for('static', filename='image/m5.jpg') }}"></div>
+    </div>
+</section>
 
 {% endblock %}
 

@@ -29,6 +29,13 @@ class UsersModifyForm(FlaskForm):
     phone = StringField('휴대폰', validators=[DataRequired(), Length(min=3, max=15)])
 
 
+# 비밀번호 수정
+class UsersPassModifyForm(FlaskForm):
+    email = EmailField('Email Address', validators=[DataRequired(), Email()])
+    password1 = PasswordField('비밀번호', validators=[DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다')])
+    password2 = PasswordField('비밀번호확인', validators=[DataRequired()])
+
+
 # 게시판
 class QuestionForm(FlaskForm):
     subject = StringField('제목', validators=[DataRequired('제목은 필수입력 항목입니다.')])

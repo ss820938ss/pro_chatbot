@@ -1,0 +1,30 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-17bba317d91-1cb67d9048c96343": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "pybo.db",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"database": "C:\\projects\\pro_chatbot\\pybo.db",
+				"url": "jdbc:sqlite:C:\\projects\\pro_chatbot\\pybo.db",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
