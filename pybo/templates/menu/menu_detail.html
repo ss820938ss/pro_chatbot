@@ -21,7 +21,7 @@
         <br>
         {{ products.description }}
         <br><br><br><br><br>
-        <a href="/order/order/?productId={{request.args.get('productId')}}" class="delete btn btn-sm btn-outline-secondary" id="btn">주문하기</a>
+        <a href="/order/order/?productId={{request.args.get('productId')}}&qty={{request.args.get('qty')}}" class="delete btn btn-sm btn-outline-secondary" id="btn">주문하기</a>
     </div>
 </div>
 

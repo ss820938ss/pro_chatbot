@@ -21,6 +21,8 @@ class Products(db.Model):
 class Cart(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.userId', ondelete='CASCADE'), nullable=True, primary_key=True)
     productId = db.Column(db.Integer, db.ForeignKey('products.productId', ondelete='CASCADE'), nullable=True, primary_key=True)
+    qty = db.Column(db.Integer, nullable=True)
+    price = db.Column(db.Integer, db.ForeignKey('products.price', ondelete='CASCADE'), nullable=True, primary_key=True)
 
 
 # 회원관리

@@ -1,6 +1,6 @@
 section {
    padding-top: 9%;
-   padding-left: 15%;
+   padding-left: 10%;
 }
 
 img {
@@ -11,7 +11,7 @@ img {
 }
 
 .line {
-    width: 800px;
+    width: 1000px;
     border-bottom: 3px solid #000;
     margin-left: 15%;
 }
@@ -22,7 +22,7 @@ h1 {
 }
 
 h6 {
-    width: 300px;
+    width: 270px;
     margin-left: 95%;
     padding: 5px;
     padding-top: 7px;
@@ -30,7 +30,7 @@ h6 {
 }
 
 p {
-    word-spacing: 100px;
+    word-spacing: 80px;
 }
 
 #btn {
@@ -44,4 +44,25 @@ p {
 	float: left;
 	margin-left: 54%;
 	margin-top: 5px;
+}
+
+#btn2 {
+	height: 35px;
+	width: 60px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+	float: left;
+    margin-right: 80px;
+    margin-bottom: 6px;
+}
+
+#qty{
+	height: 35px;
+	width: 100px;
+	text-align: center;
+	font-size: 15px;
+	margin-left: 54%;
 }
