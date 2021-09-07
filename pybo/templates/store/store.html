@@ -9,7 +9,16 @@
     {% extends 'base.html' %}
     {% block content %}
 
-      가게상세설명
+    <link rel="stylesheet" href="{{ url_for('static', filename='store.css') }}">
+
+    <section>
+        <div class="map">
+            <label><h3>찾아오시는 길</h3></label>
+        </div>
+        <div class="line"></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.529236399911!2d128.55492231555442!3d35.86054532772362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e462e0b47b7d%3A0x2479044e92eb2993!2zKOyjvCnsmIHrgqjsnbjsnqzqtZDsnKHsm5A!5e0!3m2!1sko!2skr!4v1630984782799!5m2!1sko!2skr"
+                width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="map"></iframe>
+    </section>
 
     {% endblock %}
 

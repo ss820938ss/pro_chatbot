@@ -32,8 +32,7 @@ class UsersModifyForm(FlaskForm):
 # 비밀번호 수정
 class UsersPassModifyForm(FlaskForm):
     email = EmailField('Email Address', validators=[DataRequired(), Email()])
-    password1 = PasswordField('비밀번호', validators=[DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다')])
-    password2 = PasswordField('비밀번호확인', validators=[DataRequired()])
+    password = PasswordField('비밀번호', validators=[DataRequired()])
 
 
 # 게시판

@@ -24,7 +24,7 @@ def signup():
         if not user:
             user = Users(
                 email=form.email.data,
-                password=generate_password_hash(form.password1.data),
+                password=str(generate_password_hash(form.password1.data)),
                 name=form.name.data,
                 address=form.address.data,
                 phone=form.phone.data)
@@ -43,6 +43,8 @@ def login():
     if request.method == 'POST' and form.validate_on_submit():
         error = None
         user = Users.query.filter_by(email=form.email.data).first()
+        print("========444444",hash ,  user.password, file=sys.stderr)
+
         if not user:
             error = "존재하지 않는 사용자입니다."
         elif not check_password_hash(user.password, form.password.data):
@@ -144,17 +146,16 @@ def delete():
 @login_required
 def changePassword():
     form = UsersPassModifyForm(request.form)
-    print("========", request.method, file=sys.stderr)
 
-    if request.method == "GET":
+    # print("******", form.password.data)
+    if request.method == "POST":
         global user
         user = db.session.query(Users).filter_by(email=session.get('user_id')).first()
-        print("========3333", user.email, file=sys.stderr)
+        # print("========3333", form.password.data, user.password, file=sys.stderr)
         user.email = session.get('user_id')
-        # user.password = check_password_hash(user.password, form.password1.data)
-        user.password = form.password1.data
-        user.password = generate_password_hash(form.password1.data)
-        print("========3333", user.password, file=sys.stderr)
+        hash = str(generate_password_hash(form.password.data))
+        user.password = hash
+        # print("========33332", hash,  user.password, file=sys.stderr)
         db.session.commit()
     else:
         flash('비밀번호 수정 중 오류가 발생했습니다')

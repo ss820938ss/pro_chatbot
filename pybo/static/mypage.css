@@ -51,6 +51,13 @@ h6 {
 	font-size: 15px;
 }
 
+#password {
+	height: 35px;
+	width: 300px;
+	text-align: center;
+	font-size: 15px;
+}
+
 #password1 {
 	height: 35px;
 	width: 300px;

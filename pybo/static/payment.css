@@ -7,30 +7,15 @@ img {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  margin-left: 17%;
-}
-
-.line {
-    width: 800px;
-    border-bottom: 3px solid #000;
-    margin-left: 15%;
+  margin-left: 36%;
+  margin-top: 4%;
 }
 
 h1 {
     width: 800px;
-    margin-left: 31%;
-}
-
-h6 {
-    width: 300px;
-    margin-left: 95%;
-    padding: 5px;
-    padding-top: 7px;
+    margin-left: 26%;
     font-weight: bolder;
-}
-
-p {
-    word-spacing: 100px;
+    margin-top: 2%;
 }
 
 #btn {
@@ -42,6 +27,6 @@ p {
 	color: #fff;
 	font-weight: bolder;
 	float: left;
-	margin-left: 54%;
-	margin-top: 5px;
+	margin-left: 35%;
+	margin-top: 15px;
 }

@@ -1,0 +1,23 @@
+section {
+    padding-top: 10%;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bolder;
+    float: left;
+    width: 1200px;
+    margin-left: 180px;
+}
+
+.line {
+    width: 900px;
+    border-bottom: 3px solid #000;
+    float: left;
+    margin-left: 500px;
+}
+
+.map {
+    padding-top: 10px;
+    margin-left: 500px;
+}

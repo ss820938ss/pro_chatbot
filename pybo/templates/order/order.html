@@ -13,10 +13,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='order.css') }}">
 
 <section>
-    <label><h1>ORDER</h1></label>
-    <br>
-    <input type="hidden" id="id" value="{{ form.productId.data or '' }}">
-    {{ products.name }}
+    <form action="/order/order/" method="GET" class="get-form">
+        <label><h1>ORDER</h1></label>
+        <div class="line"></div>
+        <table>
+            <tr>
+                <td><h6>상품이미지</h6></td>
+                <td><h6>상품명</h6></td>
+                <td><h6>상품가격</h6></td>
+            </tr>
+        </table>
+        <div class="line"></div>
+<!--        <div id=“hidden”>{{ session.get('user_id') }}</div>-->
+        <br>
+        <table>
+            <tr>
+                <td><h6><img src="/static/image/{{products.image}}"></h6></td>
+                <td><h6>{{ products.name }}</h6></td>
+                <td><h6>{{ products.price }}</h6></td>
+            </tr>
+        </table>
+        <br>
+        <div class="line"></div>
+        <table>
+            <tr>
+                <td><h6>합계</h6></td>
+                <td><h6>{{ products.price }}</h6></td>
+            </tr>
+        </table>
+        <div class="line"></div>
+        <a href="/order/payment/" class="btn btn-sm btn-outline-secondary" id="btn">결제</a>
+    </form>
 </section>
 
     {% endblock %}
