@@ -31,7 +31,8 @@
                 <td><h6><img src="/static/image/{{products.image}}"></h6></td>
                 <td><h6>{{ products.name }}</h6></td>
                 <td><h6>{{ cart.price }}</h6></td>
-                <td><h6><a href="#" class="btn btn-sm btn-outline-secondary" id="btn2">수정</a></h6></td>
+                <td><h6><a href="/order/order/?productId={{request.args.get('productId')}}&qty={{request.args.get('qty')}}"
+                           class="btn btn-sm btn-outline-secondary" id="btn2">수정</a></h6></td>
                 <td><input type="number" class="form-control" name="qty" id="qty" value="{{ cart.qty }}"></td>
             </tr>
         </table>

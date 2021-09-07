@@ -49,14 +49,18 @@ def _order(categories=None):
 @bp.route('/payment/', methods=('GET', 'POST'))
 @login_required
 def payment():
-    global user
+    # global user
 
-    user = db.session.query(Users).filter_by(email=session.get('user_id')).first()
-    productId = request.args.get('productId')
-    Qty = request.args.get('qty')
+    # productId = request.args.get('productId')
+    # name = request.args.get('name')
+    # qty = request.args.get('qty')
+    #
+    # user = db.session.query(Users).filter_by(email=session.get('user_id')).first()
+    # categories = db.session.query(Categories).filter_by(name=name).first()
+    #
+    # cart = Cart(userId=user.userId, productId=productId, qty=qty, price=products.price)
+    # db.session.remove(cart)
+    # db.session.commit()
 
-    cart = Cart(userId=user.userId, productId=productId, qty=Qty, price=products.price)
-    db.session.remove(cart)
-    db.session.commit()
+    return render_template('order/payment.html')
 
-    return render_template('order/payment.html', user=user)
