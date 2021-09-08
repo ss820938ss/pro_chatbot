@@ -34,7 +34,7 @@
                     <td><h6><a href="/menu/menu_detail?productId={{ cart.productId }}&name={{ cart.name }}">{{ cart.name }}</a></h6></td>
                     <td><h6>{{ cart.price * cart.qty }}</h6></td>
                     <td><h6><a href="#" class="btn btn-sm btn-outline-secondary" id="btn2">+</a></h6></td>
-                    <td><input type="number" class="form-control" name="qty" id="qty" value="{{ total_qty }}"></td>
+                    <td><input type="number" class="form-control" name="qty" id="qty" value="{{ cart.qty }}"></td>
                     <td><a href="#" class="btn btn-sm btn-outline-secondary" id="btn3">-</a></td>
                 </tr>
                 {% endfor %}
@@ -49,7 +49,7 @@
         <table>
             <tr>
                 <td><h6>합계</h6></td>
-                <td><div class="total">{{ total_price }}</div></td>
+                <td><div class="total">{{ price_total }}</div></td>
             </tr>
         </table>
         <div class="line"></div>

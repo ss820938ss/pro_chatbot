@@ -1,11 +1,9 @@
 import sys
+from turtle import pd
 
 import requests
 from flask import *
 from flask_wtf import form
-from sqlalchemy import distinct
-from sqlalchemy.sql.functions import count
-from sqlalchemy.util import counter
 
 from pybo.views.auth_views import login_required
 from pybo.models import Products, Categories, Users
@@ -34,6 +32,8 @@ def _order(categories=None):
         qty = request.args.get('qty')
 
         products = db.session.query(Products).filter_by(productId=productId).first()
+        price_total1 = db.session.query(Cart.price).order_by(cart).all()  # 가격 합계 구하기, 현재는 list 로만 출력
+
         categories = db.session.query(Categories).filter_by(name=name).first()
 
         cart = Cart(userId=user.userId, productId=productId, qty=qty, price=products.price, image=products.image, name=products.name)
@@ -45,15 +45,11 @@ def _order(categories=None):
 
         #cart_list = Cart.query.order_by(Cart.userId)
 
-        total_price = int(cart.price * cart.qty)
-        total_qty = cart.qty
-
-        print("========111", total_qty, file=sys.stderr)
-        print("========222", total_price, file=sys.stderr)
+        print("========111", price_total1, file=sys.stderr)
     else:
         flash('물건을 담는데 실패했습니다.')
 
-    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, total_price=total_price, total_qty=total_qty)
+    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total1)
 
 
 @bp.route('/payment/', methods=('GET', 'POST'))
