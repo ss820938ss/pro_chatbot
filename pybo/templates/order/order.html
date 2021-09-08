@@ -27,21 +27,29 @@
         <div class="line"></div>
         <br>
         <table>
+            {% if cart %}
+                {% for cart in cart_list %}
+                <tr>
+                    <td><h6><img src="/static/image/{{cart.image}}"></h6></td>
+                    <td><h6><a href="/menu/menu_detail?productId={{ request.args.get('productId') }}&name={{ request.args.get('name') }}">{{ cart.name }}</a></h6></td>
+                    <td><h6>{{ cart.price * cart.qty }}</h6></td>
+                    <td><h6><a href="#" class="btn btn-sm btn-outline-secondary" id="btn2">+</a></h6></td>
+                    <td><input type="number" class="form-control" name="qty" id="qty" value="{{ cart.qty }}"></td>
+                    <td><a href="#" class="btn btn-sm btn-outline-secondary" id="btn3">-</a></td>
+                </tr>
+                {% endfor %}
+            {% else %}
             <tr>
-                <td><h6><img src="/static/image/{{products.image}}"></h6></td>
-                <td><h6>{{ products.name }}</h6></td>
-                <td><h6>{{ cart.price }}</h6></td>
-                <td><h6><a href="/order/order/?productId={{request.args.get('productId')}}&qty={{request.args.get('qty')}}"
-                           class="btn btn-sm btn-outline-secondary" id="btn2">수정</a></h6></td>
-                <td><input type="number" class="form-control" name="qty" id="qty" value="{{ cart.qty }}"></td>
+                <td><h6>장바구니에 물건이 없습니다.</h6></td>
             </tr>
+            {% endif %}
         </table>
         <br>
         <div class="line"></div>
         <table>
             <tr>
                 <td><h6>합계</h6></td>
-                <td><h6></h6></td>
+                <td><div class="total">{{ total_price }}</div></td>
             </tr>
         </table>
         <div class="line"></div>

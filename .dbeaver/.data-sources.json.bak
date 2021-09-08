@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"sqlite_jdbc-17bc3a9ac8d-1d3929d207cfd122": {
+		"sqlite_jdbc-17bba317d91-1cb67d9048c96343": {
 			"provider": "sqlite",
 			"driver": "sqlite_jdbc",
 			"name": "pybo.db",

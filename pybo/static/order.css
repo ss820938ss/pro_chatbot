@@ -42,21 +42,34 @@ p {
 	color: #fff;
 	font-weight: bolder;
 	float: left;
-	margin-left: 64%;
+	margin-left: 65%;
 	margin-top: 5px;
 }
 
 #btn2 {
 	height: 35px;
-	width: 60px;
+	width: 35px;
 	text-align: center;
 	font-size: 15px;
 	background-color: #8C615A;
 	color: #fff;
 	font-weight: bolder;
 	float: left;
-    margin-right: 80px;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
+    margin-right: 100px;
+}
+
+#btn3 {
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #8C615A;
+	color: #fff;
+	font-weight: bolder;
+	float: left;
+    margin-bottom: 1px;
+    margin-left: 78%;
 }
 
 #qty{
@@ -64,5 +77,10 @@ p {
 	width: 100px;
 	text-align: center;
 	font-size: 15px;
-	margin-left: 54%;
+	margin-left: 27%;
+}
+
+.total {
+    margin-left: 1120%;
+    font-weight: bolder;
 }
