@@ -33,9 +33,7 @@
                     <td><h6><img src="/static/image/{{cart.image}}"></h6></td>
                     <td><h6><a href="/menu/menu_detail?productId={{ cart.productId }}&name={{ cart.name }}">{{ cart.name }}</a></h6></td>
                     <td><h6>{{ cart.price * qty_total }}</h6></td>
-                    <td><h6><a href="#" class="btn btn-sm btn-outline-secondary" id="btn2">+</a></h6></td>
                     <td><input type="number" class="form-control" name="qty" id="qty" value="{{ qty_total }}"></td>
-                    <td><a href="#" class="btn btn-sm btn-outline-secondary" id="btn3">-</a></td>
                 </tr>
                 {% endfor %}
             {% else %}
@@ -53,7 +51,8 @@
             </tr>
         </table>
         <div class="line"></div>
-        <a href="/order/payment/" class="btn btn-sm btn-outline-secondary" id="btn">결제</a>
+        <a href="/order/payment/" class="btn btn-sm btn-outline-secondary "
+               data-uri="{{ url_for('order.payment', userId=cart.userId) }}" id="btn">결제</a>
     </form>
 </section>
 
