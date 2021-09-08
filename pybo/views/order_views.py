@@ -29,14 +29,14 @@ def _order(categories=None):
 
         productId = request.args.get('productId')
         name = request.args.get('name')
-        qty = request.args.get('qty')
+        # qty = request.args.get('qty')
 
         products = db.session.query(Products).filter_by(productId=productId).first()
+        categories = db.session.query(Categories).filter_by(name=name).first()
+
         price_total = db.session.query(Cart.price).order_by().all()  # 합계
 
-        qty_total = db.session.query(Cart.price).filter(Cart.userId).count()  # 갯수 합계...인데 지금 추가한 항목이 동시에 올라감
-
-        categories = db.session.query(Categories).filter_by(name=name).first()
+        qty_total = db.session.query(Cart.price).filter(Cart.userId).count()  # 갯수...인데 지금 추가한 항목이 동시에 올라감
 
         cart = Cart(userId=user.userId, productId=productId, qty=qty_total, price=products.price, image=products.image, name=products.name)
 
