@@ -32,11 +32,12 @@ def _order(categories=None):
         qty = request.args.get('qty')
 
         products = db.session.query(Products).filter_by(productId=productId).first()
-        price_total1 = db.session.query(Cart.price).order_by(cart).all()  # 가격 합계 구하기, 현재는 list 로만 출력
+        price_total = db.session.query(Cart.price)  # 합계
+        qty_total = db.session.query(Cart).filter(Cart.productId).count()  # 갯수 합계...인데 지금 추가한 항목이 동시에 올라감
 
         categories = db.session.query(Categories).filter_by(name=name).first()
 
-        cart = Cart(userId=user.userId, productId=productId, qty=qty, price=products.price, image=products.image, name=products.name)
+        cart = Cart(userId=user.userId, productId=productId, qty=qty_total, price=products.price, image=products.image, name=products.name)
 
         db.session.add(cart)
         db.session.commit()
@@ -45,11 +46,11 @@ def _order(categories=None):
 
         #cart_list = Cart.query.order_by(Cart.userId)
 
-        print("========111", price_total1, file=sys.stderr)
+        print("========111", price_total, file=sys.stderr)
     else:
         flash('물건을 담는데 실패했습니다.')
 
-    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total1)
+    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total, qty_total=qty_total)
 
 
 @bp.route('/payment/', methods=('GET', 'POST'))
