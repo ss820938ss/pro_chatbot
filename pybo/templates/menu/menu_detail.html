@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='menu_detail.css') }}">
 
 <div class="coffee01">
+    <form action="/order/order/?productId={{request.args.get('productId')}}&qty={{ 1 }}&price={{ products.price }}&image={{ products.image }}&name={{ products.name }}" method="POST" class="post-form">
     <div class="detail1">
         <h1>{{ categories.name }}</h1>
         <img src="/static/image/{{products.image}}">
@@ -21,10 +22,10 @@
         <br>
         {{ products.description }}
         <br><br><br><br><br>
-        <a href="/order/order/?productId={{request.args.get('productId')}}&qty={{ 1 }}
-                               &price={{ products.price }}&image={{ products.image }}&name={{ products.name }}"
-           class="delete btn btn-sm btn-outline-secondary" id="btn">주문하기</a>
+        <a href="/order/order/?productId={{request.args.get('productId')}}&qty={{ 1 }}&price={{ products.price }}&image={{ products.image }}&name={{ products.name }}"
+           class="delete btn btn-sm btn-outline-secondary" id="btn" type="submit">주문하기</a>
     </div>
+    </form>
 </div>
 
 {% endblock %}

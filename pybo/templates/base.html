@@ -43,13 +43,12 @@
                         <li><a class="nav-link text-light" href="/question/list/">Q&A</a></li>
                         {% if cart %}
                         {% for cart in cart_list %}
-                            <li><a class="nav-link text-light" href="/order/order/?productId={{request.args.get('productId')}}&qty={{ 1 }}
-                               &price={{ products.price }}&image={{ products.image }}&name={{ products.name }}">ORDER</a></li>
+                            <li><a class="nav-link text-light"
+                                   href="/order/order/?productId={{request.args.get('productId')}}&qty={{ 1 }}&price={{ products.price }}&image={{ products.image }}&name={{ products.name }}">
+                                ORDER</a></li>
                         {% endfor %}
                         {% else %}
-                             <li><a class="nav-link text-light"
-                               href="/order/order/?productId={{ 0 }}&qty={{ 0 }}&price={{ 0 }}
-                                                   &image={{ 0 }}&name={{ 0 }}">ORDER</a></li>
+                             <li><a class="nav-link text-light" href="/order/order/?productId={{ 0 }}&qty={{ 0 }}&price={{ 0 }}&image={{ 0 }}&name={{ 0 }}">ORDER</a></li>
                         {% endif %}
                     </ul>
                 </nav>

@@ -37,22 +37,16 @@ def _order(categories=None, price_total=None):
         products = db.session.query(Products).filter_by(productId=productId).first()
         categories = db.session.query(Categories).filter_by(name=name).first()
 
-        price_total = db.session.query(Cart.price).order_by().all() # 합계
-        
-        # def sum(price_total):
-        #     sum = 0
-        #     for n in price_total:
-        #         sum = sum + n
-        #     return sum
-        # sum(price_total)
+        price_total = db.session.query(Cart.price).order_by().all()  # 합계 all 쓰면 list 로만 나오는데 더하기가 안됨
 
         print("========1", type(price_total), file=sys.stderr)
         print("========2", price_total, file=sys.stderr)
-        qty_total = db.session.query(Cart.price).filter(Cart.userId).count()  # 갯수...인데 지금 추가한 항목이 동시에 올라감
+        qty_total = db.session.query(Cart.qty).filter(Cart.userId).count()  # 갯수...인데 지금 추가한 항목이 동시에 올라감
 
         cart = Cart(userId=user.userId, productId=productId, qty=qty_total, price=price, image=image, name=name)
 
         db.session.add(cart)
+        # db.session.query(Cart).filter(Cart.qty < qty_total).delete()  # 삭제는 되는데 아이템 갯수가 일정이상 안올라감
         db.session.commit()
 
         # cart_list = db.session.query(Cart).filter_by(userId=user.userId).all()
@@ -62,6 +56,41 @@ def _order(categories=None, price_total=None):
         flash('물건을 담는데 실패했습니다.')
 
     return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total, qty_total=qty_total)
+
+
+# # 갯수수정
+# @bp.route('/cart_update/', methods=('GET', 'POST'))
+# @login_required
+# def cart_update():
+#     form = cart_update(request.form)
+#     if request.method == 'POST':
+#         global cart
+#
+#         user = db.session.query(Users).filter_by(email=session.get('user_id')).first()
+#
+#         productId = request.args.get('productId')
+#         name = request.args.get('name')
+#         price = request.args.get('price')
+#         image = request.args.get('image')
+#         qty = request.args.get('qty')
+#
+#         products = db.session.query(Products).filter_by(productId=productId).first()
+#         categories = db.session.query(Categories).filter_by(name=name).first()
+#
+#         price_total = db.session.query(Cart.price).order_by().all()  # 합계 all 쓰면 list 로만 나오는데 더하기가 안됨
+#
+#         print("========1", type(price_total), file=sys.stderr)
+#         print("========2", price_total, file=sys.stderr)
+#         qty_total = db.session.query(Cart.qty).filter(Cart.userId).count()  # 갯수...인데 지금 추가한 항목이 동시에 올라감
+#
+#         cart = Cart(userId=user.userId, productId=productId, qty=qty_total, price=price, image=image, name=name)
+#
+#         cart.qty = form.qty.data
+#         db.session.commit()
+#     else:
+#         flash('삭제 중 오류가 발생했습니다.')
+#
+#     return render_template('order/cart_update.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total, qty_total=qty_total)
 
 
 # 장바구니 비우기
