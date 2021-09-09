@@ -32,8 +32,8 @@
                 <tr>
                     <td><h6><img src="/static/image/{{cart.image}}"></h6></td>
                     <td><h6><a href="/menu/menu_detail?productId={{ cart.productId }}&name={{ cart.name }}">{{ cart.name }}</a></h6></td>
-                    <td><h6>{{ cart.price * qty_total }}</h6></td>
-                    <td><input type="number" class="form-control" name="qty" id="qty" value="{{ qty_total }}" disabled></td>
+                    <td><h6>{{ cart.price * cart.qty }}</h6></td>
+                    <td><input type="number" class="form-control" name="qty" id="qty" value="{{ cart.qty }}"></td>
                 </tr>
             {% endfor %}
             {% else %}
@@ -51,12 +51,10 @@
             </tr>
         </table>
         <div class="line"></div>
-        <div class="btn_set">
             <a href="/order/payment/" class="btn btn-sm btn-outline-secondary "
                data-uri="{{ url_for('order.payment', userId=cart.userId) }}" id="btn1">결제</a>
             <a href="/order/cart_delete/" class="delete btn btn-sm btn-outline-secondary "
                data-uri="{{ url_for('order.cart_delete', userId=cart.userId) }}" id="btn2">장바구니 비우기</a>
-        </div>
     </form>
 </section>
 

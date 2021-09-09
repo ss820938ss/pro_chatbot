@@ -19,12 +19,15 @@ class Products(db.Model):
 
 
 class Cart(db.Model):
-    userId = db.Column(db.Integer, db.ForeignKey('users.userId', ondelete='CASCADE'), nullable=True, primary_key=True)
-    productId = db.Column(db.Integer, db.ForeignKey('products.productId', ondelete='CASCADE'), nullable=True, primary_key=True)
+    __tablename__ = 'Cart'
+    __table_args__ = {'sqlite_autoincrement': True}
+    cartId = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
+    userId = db.Column(db.Integer, nullable=True)
+    productId = db.Column(db.Integer, nullable=True)
     qty = db.Column(db.Integer, nullable=True)
-    price = db.Column(db.Integer, db.ForeignKey('products.price', ondelete='CASCADE'), nullable=True, primary_key=True)
-    image = db.Column(db.String(200), db.ForeignKey('products.image', ondelete='CASCADE'), nullable=True, primary_key=True)
-    name = db.Column(db.String(200), db.ForeignKey('products.name', ondelete='CASCADE'), nullable=True, primary_key=True)
+    price = db.Column(db.Integer, nullable=True)
+    image = db.Column(db.String(200), nullable=True)
+    name = db.Column(db.String(200),  nullable=True)
 
 
 # 회원관리

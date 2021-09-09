@@ -5,6 +5,8 @@ import re
 import requests
 from flask import *
 from flask_wtf import form
+from sqlalchemy.sql import label
+from sqlalchemy import func
 
 from pybo.views.auth_views import login_required
 from pybo.models import Products, Categories, Users
@@ -12,7 +14,6 @@ from pybo.models import Cart
 from pybo import db
 
 bp = Blueprint('order', __name__, url_prefix='/order')
-
 
 # 장바구니 목록
 user = None
@@ -37,25 +38,24 @@ def _order(categories=None, price_total=None):
         products = db.session.query(Products).filter_by(productId=productId).first()
         categories = db.session.query(Categories).filter_by(name=name).first()
 
-        price_total = db.session.query(Cart.price).order_by().all()  # 합계 all 쓰면 list 로만 나오는데 더하기가 안됨
-
-        print("========1", type(price_total), file=sys.stderr)
-        print("========2", price_total, file=sys.stderr)
-        qty_total = db.session.query(Cart.qty).filter(Cart.userId).count()  # 갯수...인데 지금 추가한 항목이 동시에 올라감
-
-        cart = Cart(userId=user.userId, productId=productId, qty=qty_total, price=price, image=image, name=name)
-
+        cart = Cart(userId=user.userId, productId=productId, qty=qty, price=price, image=image, name=name)
         db.session.add(cart)
-        # db.session.query(Cart).filter(Cart.qty < qty_total).delete()  # 삭제는 되는데 아이템 갯수가 일정이상 안올라감
         db.session.commit()
 
-        # cart_list = db.session.query(Cart).filter_by(userId=user.userId).all()
+        # print("========1", type(price_total), file=sys.stderr)
+        # print("========2", price_total, file=sys.stderr)
         cart_list = Cart.query.order_by(Cart.userId).all()
+
+        price_total = db.session.query(Cart.price, label('price', func.sum(Cart.price))).first()  # 합계
+
+        print("1", price_total[0])
+        print("2", price_total[1])
 
     else:
         flash('물건을 담는데 실패했습니다.')
 
-    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list, categories=categories, price_total=price_total, qty_total=qty_total)
+    return render_template('order/order.html', form=form, products=products, user=user, cart=cart, cart_list=cart_list,
+                           categories=categories, price_total=price_total[1])
 
 
 # # 갯수수정
@@ -121,4 +121,3 @@ def payment():
         flash('결제 중 오류가 발생했습니다.')
 
     return render_template('order/payment.html', cart=cart)
-

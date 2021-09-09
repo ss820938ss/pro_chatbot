@@ -41,8 +41,8 @@ p {
 	background-color: #8C615A;
 	color: #fff;
 	font-weight: bolder;
-	float: left;
-	margin-left: 65%;
+	float: right;
+	margin-right: 453px;
 	margin-top: 5px;
 }
 
@@ -55,20 +55,7 @@ p {
 	color: #fff;
 	font-weight: bolder;
 	float: left;
-	margin-left: 65%;
-	margin-top: 5px;
-}
-
-#btn3 {
-	height: 38px;
-	width: 150px;
-	text-align: center;
-	font-size: 15px;
-	background-color: #8C615A;
-	color: #fff;
-	font-weight: bolder;
-	float: left;
-	margin-left: 65%;
+	margin-left: 15%;
 	margin-top: 5px;
 }
 
@@ -84,3 +71,4 @@ p {
     margin-left: 300%;
     font-weight: bolder;
 }
+
