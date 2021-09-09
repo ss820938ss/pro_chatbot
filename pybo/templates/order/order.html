@@ -28,14 +28,14 @@
         <br>
         <table>
             {% if cart %}
-                {% for cart in cart_list %}
+            {% for cart in cart_list %}
                 <tr>
                     <td><h6><img src="/static/image/{{cart.image}}"></h6></td>
                     <td><h6><a href="/menu/menu_detail?productId={{ cart.productId }}&name={{ cart.name }}">{{ cart.name }}</a></h6></td>
                     <td><h6>{{ cart.price * qty_total }}</h6></td>
                     <td><input type="number" class="form-control" name="qty" id="qty" value="{{ qty_total }}"></td>
                 </tr>
-                {% endfor %}
+            {% endfor %}
             {% else %}
             <tr>
                 <td><h6>장바구니에 물건이 없습니다.</h6></td>
@@ -52,11 +52,25 @@
         </table>
         <div class="line"></div>
         <a href="/order/payment/" class="btn btn-sm btn-outline-secondary "
-               data-uri="{{ url_for('order.payment', userId=cart.userId) }}" id="btn">결제</a>
+           data-uri="{{ url_for('order.payment', userId=cart.userId) }}" id="btn1">결제</a>
+        <a href="/order/cart_delete/" class="delete btn btn-sm btn-outline-secondary "
+           data-uri="{{ url_for('order.cart_delete', userId=cart.userId) }}" id="btn2">장바구니 비우기</a>
     </form>
 </section>
 
     {% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
+{% endblock %}
 
 </body>
 </html>

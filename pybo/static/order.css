@@ -33,7 +33,7 @@ p {
     word-spacing: 80px;
 }
 
-#btn {
+#btn1 {
 	height: 38px;
 	width: 150px;
 	text-align: center;
@@ -47,16 +47,16 @@ p {
 }
 
 #btn2 {
-	height: 35px;
-	width: 35px;
+	height: 38px;
+	width: 150px;
 	text-align: center;
 	font-size: 15px;
 	background-color: #8C615A;
 	color: #fff;
 	font-weight: bolder;
 	float: left;
-    margin-bottom: 7px;
-    margin-right: 100px;
+	margin-left: 65%;
+	margin-top: 5px;
 }
 
 #btn3 {
