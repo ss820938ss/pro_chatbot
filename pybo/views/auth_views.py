@@ -43,7 +43,7 @@ def login():
     if request.method == 'POST' and form.validate_on_submit():
         error = None
         user = Users.query.filter_by(email=form.email.data).first()
-        print("========444444",hash ,  user.password, file=sys.stderr)
+        # print("========444444",hash ,  user.password, file=sys.stderr)
 
         if not user:
             error = "존재하지 않는 사용자입니다."

@@ -33,7 +33,7 @@ def _list():
                     Question.content.ilike(search) |  # 질문내용
                     Users.userId.ilike(search) |  # 질문작성자
                     sub_query.c.content.ilike(search) |  # 답변내용
-                    sub_query.c.id.ilike(search)  # 답변작성자
+                    sub_query.c.userId.ilike(search)  # 답변작성자
                     ) \
             .distinct()
 
