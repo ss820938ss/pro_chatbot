@@ -19,7 +19,7 @@ class Products(db.Model):
 
 
 class Cart(db.Model):
-    __tablename__ = 'Cart'
+    __table_name__ = 'Cart'
     __table_args__ = {'sqlite_autoincrement': True}
     cartId = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
     userId = db.Column(db.Integer, nullable=True)
